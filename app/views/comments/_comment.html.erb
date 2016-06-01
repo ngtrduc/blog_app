@@ -7,5 +7,4 @@ Posted <%= time_ago_in_words(comment.created_at) %> ago.
 <%= link_to "delete", comment, method: :delete, data: { confirm: "You sure?" } %>
 <% end %>
 </span>
-<%= render 'comments/comment_form' %>
 </li>
