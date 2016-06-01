@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
+  get 'search' => 'static_pages#search'
+
   resources :users do
     member do
       get :following, :followers

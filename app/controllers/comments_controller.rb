@@ -3,11 +3,14 @@ class CommentsController < ApplicationController
   def create
   	@comment = Comment.new(comment_params)
   	@comment.user_id = current_user.id
-  	if @comment.save
-  		redirect_back_or current_user
-  	else
-  		redirect_back_or current_user
-  	end
+    if @comment.save
+      respond_to do |format|
+        format.html do
+          redirect_to @post
+        end
+        format.js 
+      end
+    end
   end
 
   def destroy
