@@ -1,30 +1,30 @@
 <li id="post-<%= post.id %>">
-<%= avatar_for(post.user) %>
-<span class="content">Title: <%= post.title %></span>
-<span class="content"><%= post.content %></span>
-<span class="timestamp">
-Posted <%= time_ago_in_words(post.created_at) %> ago.
-<% if current_user?(post.user) %>
-<%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %>
-<% end %>
-</span>
-<span class ="comment">
-	<h4>Comments</h4>
-	<% if post.comments.any? %>
-	<ol class="well">
-	<%= render post.comments %>
-	</ol>
-<% end %>	
-</span>
+	<%= avatar_for(post.user) %>
+	<span class="content">Title: <%= post.title %></span>
+	<span class="content"><%= post.content %></span>
+	<span class="timestamp">
+	Posted <%= time_ago_in_words(post.created_at) %> ago.
+	<% if current_user?(post.user) %>
+		<%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %>
+	<% end %>
+	</span>
+	<span class ="comment">
+		<h4>Comments</h4>
+		<% if post.comments.any? %>
+			<ol class="well">
+			<%= render post.comments %>
+		   	</ol>
+		<% end %>	
+	</span>
 
-<% if logged_in? %>
-<%= form_for(@comment) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-<div class="form-group">
-<%= f.text_area :content, placeholder: "Your comment...", class: "form-control" %>
-<%= f.hidden_field :post_id, :value =>  post.id %>
-</div>
-<%= f.submit "comment", class: "btn btn-primary" %>
-<% end %>
-<% end %>
+	<% if logged_in? %>
+		<%= form_for(@comment) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<div class="form-group">
+				<%= f.text_area :content, placeholder: "Your comment...", class: "form-control" %>
+				<%= f.hidden_field :post_id, :value =>  post.id %>
+			</div>
+			<%= f.submit "comment", class: "btn btn-primary" %>
+		<% end %>
+	<% end %>
 </li>

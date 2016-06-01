@@ -10,11 +10,10 @@
 		<%= render 'follow_form' if logged_in? %>
 	</aside>
 	<div class="col-md-8">
-
 		<% if @user.posts.any? %>
 			<h3>Posts (<%= @user.posts.count %>)</h3>
 			<ol class="microposts">
-			<%= render @posts %>
+				<%= render @posts %>
 			</ol>
 			<%= will_paginate @posts %>
 		<% end %>

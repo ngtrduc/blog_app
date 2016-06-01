@@ -1,7 +1,7 @@
 <% if logged_in? %>
 	<%= render 'static_pages/logged_home' %>
 <% else %>
-<h1>Welcome to my Blog App</h1>
-<p> In my website, You can share everything in your mind.</p>
-<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+	<h1>Welcome to my Blog App</h1>
+	<p> In my website, You can share everything in your mind.</p>
+	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 <% end %>

@@ -2,175 +2,175 @@
 @import "bootstrap";
 
 body {
-padding-top: 60px;
+    padding-top: 60px;
 }
+
 section {
-overflow: auto;
+    overflow: auto;
 }
+
 textarea {
-resize: vertical;
+    resize: vertical;
 }
+
 .center {
-text-align: center;
+    text-align: center;
 }
+
 .center h1 {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 #logo {
-float: left;
-margin-right: 10px;
-font-size: 1.7em;
-color: #fff;
-text-transform: uppercase;
-letter-spacing: -1px;
-padding-top: 9px;
-font-weight: bold;
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
 }
+
 #logo:hover {
-color: #fff;
-text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
+
 @mixin box_sizing {
--moz-box-sizing:
-border-box;
--webkit-box-sizing: border-box;
-box-sizing:
-border-box;
+    -moz-box-sizing:
+    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:
+    border-box;
 }
 
 .debug_dump {
-clear: both;
-float: left;
-width: 100%;
-margin-top: 45px;
-@include box_sizing;
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 45px;
+    @include box_sizing;
 }
 
 aside {
-section.user_info {
-margin-top: 20px;
-}
-section {
-padding: 10px 0;
-margin-top: 20px;
-&:first-child {
-border: 0;
-padding-top: 0;
-}
-span {
-display: block;
-margin-bottom: 3px;
-line-height: 1;
+    section.user_info {
+        margin-top: 20px;
+    }
+
+    section {
+        padding: 10px 0;
+        margin-top: 20px;
+        &:first-child {
+            border: 0;
+            padding-top: 0;
+        }
+        span {
+            display: block;
+            margin-bottom: 3px;
+            line-height: 1;
+        }
+    }
 }
 h1 {
-font-size: 1.4em;
-text-align: left;
-letter-spacing: -1px;
-margin-bottom: 3px;
-margin-top: 0px;
-}
-}
-}
-.gravatar {
-float: left;
-margin-right: 10px;
-}
-.gravatar_edit {
-margin-top: 15px;
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
 }
 
 .btn {
 	margin-top: 10px
 }
+
 .avatar {
 	margin-top: 7px;
 	border: solid 2px #777;
 }
+
 .stats {
-overflow: auto;
-margin-top: 0;
-padding: 0;
-a {
-float: left;
-padding: 0 10px;
-border-left: 1px solid $gray-lighter;
-color: gray;
-&:first-child {
-padding-left: 0;
-border: 0;
+    overflow: auto;
+    margin-top: 0;
+    padding: 0;
+    a {
+        float: left;
+        padding: 0 10px;
+        border-left: 1px solid $gray-lighter;
+        color: gray;
+        &:first-child {
+            padding-left: 0;
+            border: 0;
+        }
+        &:hover {
+            text-decoration: none;
+            color: blue;
+        }
+    }
+
+    strong {
+        display: block;
+    }
 }
-&:hover {
-text-decoration: none;
-color: blue;
-}
-}
-strong {
-display: block;
-}
-}
-.user_avatars {
-overflow: auto;
-margin-top: 10px;
-.gravatar {
-margin: 1px 1px;
-}
-a {
-padding: 0;
-}
-}
+
+
 .users.follow {
-padding: 0;
+    padding: 0;
 }
 
 .microposts {
-list-style: none;
-padding: 0;
-li {
-padding: 10px 0;
-border-top: 1px solid #e8e8e8;
-}
-.user {
-margin-top: 5em;
-padding-top: 0;
-}
-.content {
-display: block;
-margin-left: 60px;
-img {
-display: block;
-padding: 5px 0;
-}
-}
-.timestamp {
-color: $gray-light;
-display: block;
-margin-left: 60px;
-}
-.avatar {
-float: left;
-margin-right: 10px;
-margin-top: 5px;
-}
-}
-aside {
-textarea {
-height: 100px;
-margin-bottom: 5px;
-}
-}
-span.picture {
-margin-top: 10px;
-input {
-border: 0;
-}
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 10px 0;
+        border-top: 1px solid #e8e8e8;
+    }
+    .user {
+        margin-top: 5em;
+        padding-top: 0;
+    }
+    .content {
+        display: block;
+        margin-left: 60px;
+        img {
+            display: block;
+            padding: 5px 0;
+        }
+    }
+
+    .timestamp {
+        color: $gray-light;
+        display: block;
+        margin-left: 60px;
+    }
+
+    .avatar {
+        float: left;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
 }
 
-.search{
+aside {
+    textarea {
+        height: 100px;
+        margin-bottom: 5px;
+    }
+}
+
+span.picture {
+    margin-top: 10px;
+    input {
+        border: 0;
+    }
+}
+
+.search {
     position: relative;
     float:left;
     width: calc(75% - 417px);
 }
-.search span{
+.search span {
     position: absolute;
     line-height: 34px;
     z-index: 20;
@@ -179,7 +179,7 @@ border: 0;
     top:10px;
     font-weight:bold;
 }
-.search input{
+.search input {
     line-height: 22px;
     border-radius: 3px;
     width: 100%;
@@ -190,21 +190,21 @@ border: 0;
     margin-top:10px;
 }
 
-.location{
+.location {
     margin-top:10px;
     float:left;
     width:160px;
     margin-left:33px;
 }
 
-.custom-dropdown{
+.custom-dropdown {
     width: 100%;
     position: relative;
     vertical-align: middle;
 }
 
 
-.location .inner-label{
+.location .inner-label {
     color: #afb4b6;
     font-weight: 300;
     position: absolute;
@@ -214,7 +214,7 @@ border: 0;
     padding-left: 10px;
 }
 
-.location input{
+.location input {
     padding-left: 28px;
     font-weight: 300;
     padding-right: 24px;
@@ -229,11 +229,11 @@ border: 0;
     cursor: pointer;
 }
 .users {
-list-style: none;
-margin: 0;
-li {
-overflow: auto;
-padding: 10px 0;
-border-bottom: 1px solid $gray-lighter;
-}
+    list-style: none;
+    margin: 0;
+    li {
+        overflow: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid $gray-lighter;
+    }
 }
