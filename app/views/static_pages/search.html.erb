@@ -2,19 +2,19 @@
 
 <div class="container row">
   <% unless @posts.nil? %>
-  <h2>Posts searching </h2>
-  	<div class="col-md-8">
-		<ol class="microposts">
-		<%= render @posts %>
-		</ol>
+  	<h2>Posts searching </h2>
+		<div class="col-md-8">
+			<ol class="microposts">
+			<%= render @posts %>
+			</ol>
 		<%= will_paginate @posts %>
-	</div>
+		</div>
   <%end%>
 
   <% unless @users.nil? %>
-  <h2>Users searching </h2>
-   <ul class="users">
-  <%= render @users %>
-  </ul>
+  	<h2>Users searching </h2>
+   	<ul class="users">
+  	<%= render @users %>
+  	</ul>
   <%end%>
 </div>

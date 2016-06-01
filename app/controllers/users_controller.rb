@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
+
   def show
     @comment = current_user.comments.build if logged_in?
     @user = User.find(params[:id])
@@ -23,10 +24,11 @@ class UsersController < ApplicationController
 
   def edit
   end
+
   def update
     if @user.update_attributes(user_params)
-    flash[:success] = "Profile updated"
-    redirect_to @user
+      flash[:success] = "Profile updated"
+      redirect_to @user
     else
       render 'edit'
     end
@@ -34,9 +36,11 @@ class UsersController < ApplicationController
 
 
   private 
+  #permit user's params for only name, email, password and password_comfirmation attribute
   def user_params
-	params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+	  params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
   end
+  #check correct user for action 
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
