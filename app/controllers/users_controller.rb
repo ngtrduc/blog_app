@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   def show
-    @comment = current_user.comments.build
+    @comment = current_user.comments.build if logged_in?
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
   end 
