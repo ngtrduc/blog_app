@@ -1,0 +1,16 @@
+<% post = Post.find(noti.post_id) %>
+<% if true == noti.status %>
+<li class = "well" >
+<% else %>
+<li>
+<% end %>
+	<% if 1 == noti.noti_type %>
+		<%= link_to "Some one comment in your post!!", post %>
+	<% else %>
+		<%= link_to "You have a new feed !!", post %>
+	<% end %>
+	<br>
+	<span class="timestamp">
+		<%= time_ago_in_words(noti.created_at) %> ago.
+	</span>
+</li>
