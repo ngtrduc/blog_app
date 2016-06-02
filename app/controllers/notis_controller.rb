@@ -3,7 +3,7 @@ class NotisController < ApplicationController
   	@new_notis = current_user.notis.where(status: true)
   	@notis = current_user.notis.where(status: false)
   	unless @new_notis.nil?
-  		@new_notis.update_all status: false
+  		current_user.notis.where(status: true).update_all status: false
   	end
   end
 
