@@ -1,5 +1,6 @@
 <li id="post-<%= post.id %>">
 	<%= link_to avatar_for(post.user), post.user %>
+	<span class="content"><h4><%= link_to post.user.name, post.user %></h4></span>
 	<span class="content"><%= link_to "Title: #{post.title} ", post %></span>
 	<span class="content"><%= post.content %></span>
 	<span class="timestamp">
@@ -10,18 +11,19 @@
 	</span>
 	<span class ="comment">
 		<h4>Comments</h4>
+		<ul id = "comments_<%= post.id %>">
 		<% if post.comments.any? %>
-			<ul class="well">
 			<%= render post.comments %>
-		   	</ul>
-		<% end %>	
+		<% end %>
+		</ul>
+
 	</span>
 
 	<% if logged_in? %>
-		<%= form_for(@comment) do |f| %>
+		<%= form_for(@comment, remote: true) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			<div class="form-group">
-				<%= f.text_area :content, placeholder: "Your comment...", class: "form-control" %>
+				<%= f.text_area :content, placeholder: "Your comment...", class: "form-control", id: "comment_field_#{post.id}" %>
 				<%= f.hidden_field :post_id, :value =>  post.id %>
 			</div>
 			<%= f.submit "comment", class: "btn btn-primary" %>
