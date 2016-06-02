@@ -1,5 +1,5 @@
 <li id="post-<%= post.id %>">
-	<%= avatar_for(post.user) %>
+	<%= link_to avatar_for(post.user), post.user %>
 	<span class="content"><%= link_to "Title: #{post.title} ", post %></span>
 	<span class="content"><%= post.content %></span>
 	<span class="timestamp">
@@ -11,9 +11,9 @@
 	<span class ="comment">
 		<h4>Comments</h4>
 		<% if post.comments.any? %>
-			<ol class="well">
+			<ul class="well">
 			<%= render post.comments %>
-		   	</ol>
+		   	</ul>
 		<% end %>	
 	</span>
 
