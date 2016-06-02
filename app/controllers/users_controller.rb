@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :following, :followers]
+  before_action :logged_in_user, only: [:index, :edit, :update, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
 
+  def index
+    @users = User.all.paginate(page: params[:page], :per_page => 6)
+  end
   def show
     @comment = current_user.comments.build if logged_in?
     @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page])
+    @posts = @user.posts.paginate(page: params[:page], :per_page => 6)
   end 
   def new
   	@user = User.new
@@ -13,14 +16,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.paginate(page: params[:page], :per_page => 6)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.paginate(page: params[:page], :per_page => 6)
     render 'show_follow'
   end
   
