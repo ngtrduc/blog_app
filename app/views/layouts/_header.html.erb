@@ -1,3 +1,4 @@
+<% notis = current_user.notis.where(status: true) if logged_in?%>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "sample app", root_path, id: "logo" %>
@@ -15,6 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
         <div class="mylogo dropdown">
+          <%= link_to  "#{notis.count} new notifications" , notification_path, class: "noti" %>
           <a href='#' class="dropdown-toggle tootip" data-toggle="dropdown" title= <%=current_user.email%>>
             <%= image_tag(current_user.avatar.url(:thumb), class: "img-circle avatar",height: "38", width: "38") %>
           </a>
@@ -28,7 +30,7 @@
           </ul>
         </div>
       <% else %>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to " Log in ", login_path %></li>
       <% end %>
       </ul>
     </nav>

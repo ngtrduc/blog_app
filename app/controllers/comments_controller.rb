@@ -2,9 +2,16 @@ class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   
   def create
+
   	@comment = Comment.new(comment_params)
   	@comment.user_id = current_user.id
-    if @comment.save
+    post = Post.find(@comment.post_id)
+    noti = Noti.new
+    noti.noti_type = 1
+    noti.post_id = @comment.post_id
+    noti.user_id = post.user_id
+    noti.status = true
+    if @comment.save && noti.save
       redirect_to request.referrer || root_url
     end
   end

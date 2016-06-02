@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'notis/create'
+
+  get 'notis/destroy'
+
   get 'comments/create'
 
   get 'comments/destroy'
@@ -23,6 +27,8 @@ Rails.application.routes.draw do
 
   get 'search' => 'static_pages#search'
 
+  get 'notification' =>'notis#show'
+
   resources :users do
     member do
       get :following, :followers
@@ -30,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :posts,only: [:create, :destroy]
+  resources :posts,only: [:show, :create, :destroy]
   resources :comments,only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
