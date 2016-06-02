@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :check_following, only: :create
   
   def create
   	@comment = Comment.new(comment_params)
@@ -32,5 +33,12 @@ class CommentsController < ApplicationController
 
   def comment_params
   	params.require(:comment).permit(:content, :user_id, :post_id)
+  end
+
+  def check_following
+    post = Post.find(params[:comment][:post_id])
+    if !current_user.following?(post.user) && current_user != post.user
+      redirect_to @post.user
+    end
   end
 end

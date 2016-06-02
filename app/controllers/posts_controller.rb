@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@comment = current_user.comments.build if logged_in?
+		@comment = current_user.comments.build if logged_in? && current_user.following?(@post.user)
 	end
 	def create
 		@post = current_user.posts.build(posts_params)

@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     @users = User.all.paginate(page: params[:page], :per_page => 6)
   end
   def show
-    @comment = current_user.comments.build if logged_in?
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page], :per_page => 6)
+    @comment = current_user.comments.build if logged_in? && current_user.following?(@user)
   end 
   def new
   	@user = User.new

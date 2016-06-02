@@ -18,8 +18,7 @@
 		</ul>
 
 	</span>
-
-	<% if logged_in? %>
+	<% if logged_in? && (current_user.following?(post.user) || current_user == post.user )%>
 		<%= form_for(@comment, remote: true) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			<div class="form-group">
